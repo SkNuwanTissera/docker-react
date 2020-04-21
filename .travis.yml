@@ -2,6 +2,6 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t sknut1995/Dockereact -f Dockerfile.dev .
+    - docker build -t sknut1995/dockereact -f Dockerfile.dev .
 script:
-    - docker run sknut1995/Dockereact npm run test -- --coverage
+    - docker run sknut1995/dockereact npm run test -- --coverage
