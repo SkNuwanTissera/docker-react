@@ -1,0 +1,7 @@
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t sknut1995/Dockereact -f Dockerfile.dev .
+script:
+    - docker run sknut1995/Dockereact npm run test -- --coverage
