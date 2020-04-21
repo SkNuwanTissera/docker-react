@@ -4,4 +4,16 @@ services:
 before_install:
     - docker build -t sknut1995/dockereact -f Dockerfile.dev .
 script:
-    - docker run sknut1995/dockereact npm run start
+    - docker run sknut1995/dockereact npm run start   
+deploy:
+    provider: elasticbeanstalk
+    region:  "us-east-1"
+    app: "Dockereact"
+    env: "Dockereact-env"
+    bucket_name: "elasticbeanstalk-us-east-1-815509391063"
+    bucket_path: "Dockereact"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: 
+        secure: "$AWS_SECRET_KEY"
